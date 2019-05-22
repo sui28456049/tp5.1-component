@@ -1,11 +1,11 @@
 <?php
-namespace app\index\controller;
+namespace app\worker\controller;
 
 class Index
 {
     public function index()
     {
-       print_r('bbbb');
+        echo 'start.........';
     }
 
     public function hello($name = 'ThinkPHP5')

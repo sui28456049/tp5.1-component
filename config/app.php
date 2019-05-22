@@ -19,9 +19,15 @@ return [
     // 应用地址
     'app_host'               => '',
     // 应用调试模式
-    'app_debug'              => false,
+    'app_debug'              => true,
     // 应用Trace
-    'app_trace'              => false,
+    'app_trace'              => true,
+    'log'                    => [
+        // 日志记录方式
+        'type'  => 'File',
+        // error和sql日志单独记录
+        'apart_level'   =>  ['error','sql'],
+    ],
     // 是否支持多模块
     'app_multi_module'       => true,
     // 入口自动绑定模块

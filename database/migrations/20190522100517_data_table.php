@@ -29,7 +29,6 @@ class DataTable extends Migrator
     public function change()
     {
         $this->table('data')
-            ->setPrimaryKey(['id','follower_id']) //设置联合主键
             ->addColumn(Column::integer('user_id'))
             ->addColumn(Column::string('name'))
             ->create();

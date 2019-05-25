@@ -2,6 +2,7 @@
 namespace app\index\controller;
 
 use app\index\model\User;
+use think\Db;
 
 class Index
 {
@@ -60,6 +61,8 @@ class Index
 //            $query->where('status',1);
 //        }])->find();
 //        halt( $res);
+        $count = Db::getQueryTimes(true);
+        halt($count);
 
     }
 

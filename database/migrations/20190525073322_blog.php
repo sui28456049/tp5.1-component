@@ -33,6 +33,9 @@ class Blog extends Migrator
             ->addColumn(Column::string('title')->setComment('标题'))
             ->addColumn(Column::integer('cate_id')->setComment('cate_id'))
             ->addColumn(Column::integer('user_id')->setComment('用户 id'))
+            //->addColumn(Column::integer('delete_time')->setNullable()->setComment('删除时间'))
+            ->addSoftDelete()  //添加delete_time字段
+//            ->addTimestamps() //添加create_time和update_time两个字段
             ->create();
     }
 }

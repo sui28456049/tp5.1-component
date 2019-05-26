@@ -3,15 +3,20 @@
 namespace app\index\model;
 
 use think\Model;
+use think\model\concern\SoftDelete;
 
 class Blog extends Model
 {
+    use SoftDelete;
+    protected $deleteTime = 'delete_time';
+
+
     /**
      * 获取博客所属的用户
      */
     public function user()
     {
-        return $this->belongsTo('User');
+        return $this->belongsTo('User','user_id','id');
     }
 
     /**
@@ -19,7 +24,10 @@ class Blog extends Model
      */
     public function content()
     {
-        return $this->hasOne('Content');
+        return $this->hasOne('Content','blog_id','id');
+        // 默认一对一关联查询也是使用2次查询，如果希望获取更好的性能，可以修改关联定义为：
+        // return $this->hasOne('Content','blog_id','id')->setEagerlyType(0);
+        //修改后，关联查询从原来默认的IN查询改为JOIN查询，可以减少一次查询，但有一个地方必须注意，指定的关联表字段field方法必须改为withField方法。
     }
 
     /**

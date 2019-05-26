@@ -82,13 +82,13 @@ class User extends Model
     }
 
 
-    //////////////测试需要
+    //////////////测试关联模型需要
     /**
      * 获取用户所属的角色信息
      */
     public function roles()
     {
-        return $this->belongsToMany('Role', 'auth');
+        return $this->belongsToMany('Role', 'auth','role_id','user_id');
     }
 
     /**
@@ -96,7 +96,7 @@ class User extends Model
      */
     public function blogs()
     {
-        return $this->hasMany('Blog');
+        return $this->hasMany('Blog','user_id','id');
     }
 
     /**

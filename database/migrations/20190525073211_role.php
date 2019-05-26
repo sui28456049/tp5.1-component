@@ -29,8 +29,6 @@ class Role extends Migrator
     public function change()
     {
         $this->table('role')
-            ->setId(false) //关闭自动设置主键
-            ->addColumn(Column::string('id')->setUnique()->setComment('权限 id'))
             ->addColumn(Column::string('name')->setComment('权限名字'))
             ->create();
     }

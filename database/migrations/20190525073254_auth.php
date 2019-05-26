@@ -31,7 +31,7 @@ class Auth extends Migrator
         $this->table('auth')
             ->addColumn(Column::integer('user_id')->setComment('用户id'))
             ->addColumn(Column::integer('role_id')->setComment('权限 id'))
-            ->addColumn(Column::dateTime('add_time')->setComment('添加时间'))
+            ->addColumn(Column::dateTime('add_time')->setNullable()->setComment('添加时间'))
             ->create();
     }
 }

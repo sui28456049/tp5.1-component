@@ -5,6 +5,7 @@ use app\index\model\User;
 use app\index\model\Blog;
 use app\index\model\Content;
 use app\index\model\Role;
+use app\index\model\Comment;
 use think\Db;
 
 class Index
@@ -167,5 +168,23 @@ class Index
         $user = User::get(1);
         // 给用户授权多个角色（根据角色主键）
                 $user->roles()->attach([1, 2, 3], ['add_time' => '2017-1-31']);
+    }
+
+    // 多态一对多
+    public function demo4()
+    {
+        //例如用户可以评论书和文章，但评论表通常都是同一个数据表的设计。多态一对多关联关系，就是为了满足类似的使用场景而设计。
+//        $blog = Blog::get(1);
+//
+//        foreach ($blog->comments as $comment) {
+//            dump($comment);
+//        }
+
+        // 站在评论表角度获取blog类型评论
+//        Comment 模型的 commentable 关联会返回 Blog 或 User 模型的对象实例，这取决于评论所属模型的类型。
+        $comment = Comment::get(3);
+        $commentable = $comment->commentable;
+        halt($commentable);
+
     }
 }

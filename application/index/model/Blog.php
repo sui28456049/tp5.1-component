@@ -43,6 +43,9 @@ class Blog extends Model
      */
     public function comments()
     {
-        return $this->morphMany('Comment', 'commentable');
+        // 对应的是博客文档的   第三个参数为指定 多态类型的 1 或 2 或者用文字
+        return $this->morphMany('Comment', 'commentable','1');
+        // 如果是博客文章的评论的评论 可以放一个表,以类型区分,2 为评论别人的
+        //         return $this->morphMany('Comment', 'commentable','2');
     }
 }

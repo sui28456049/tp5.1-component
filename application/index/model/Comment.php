@@ -11,6 +11,9 @@ class Comment extends Model
      */
     public function commentable()
     {
-        return $this->morphTo();
+        return $this->morphTo('commentable', [
+            '1' => 'app\index\model\Blog',
+            '2' => 'app\index\model\User',
+        ]);
     }
 }

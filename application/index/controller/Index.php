@@ -39,4 +39,39 @@ class Index
 //            'order_revise'=> 'app\job\job2',
 //        ];
     }
+
+
+    // 多种任务分发
+    public function MultiTask()
+    {
+        $taskType = $_GET['taskType'];
+
+        switch ($taskType) {
+            case 'taskA':
+                $jobHandlerClassName  = 'app\job\MultiTask@taskA';
+                $jobDataArr = ['a'	=> '1'];
+                $jobQueueName = "multiTaskJobQueue";
+                break;
+            case 'taskB':
+                $jobHandlerClassName  = 'app\job\MultiTask@taskB';
+                $jobDataArr = ['b'	=> '2'];
+                $jobQueueName = "multiTaskJobQueue";
+                break;
+            default:
+                break;
+        }
+
+        $isPushed = Queue::push($jobHandlerClassName, $jobDataArr, $jobQueueName);
+
+        if ($isPushed !== false)
+        {
+            echo("the $taskType of MultiTask Job has been Pushed to ".$jobQueueName.PHP_EOL);
+        }else{
+           echo ("push a new $taskType of MultiTask Job Failed!");
+        }
+
+    }
+
+
+
 }

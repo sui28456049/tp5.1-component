@@ -48,4 +48,9 @@ class MultiTask
         return true;
     }
 
+    public function failed($data)
+    {
+        // 任务失败 do something
+    }
+
 }

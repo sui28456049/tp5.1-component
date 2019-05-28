@@ -17,7 +17,21 @@
     ],
     "require": {
         "php": ">=5.6.0",
-        "topthink/framework": "5.1.*"
+        "topthink/framework": "5.1.*",
+        "facebook/webdriver": "^1.6",
+        "jonnyw/php-phantomjs": "^4.6",
+        "jakoch/phantomjs-installer": "^2.1"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "PhantomInstaller\\Installer::installPhantomJS"
+        ],
+        "post-update-cmd": [
+            "PhantomInstaller\\Installer::installPhantomJS"
+        ]
     },
     "autoload": {
         "psr-4": {

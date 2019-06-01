@@ -10,9 +10,8 @@
 namespace Facebook\WebDriver;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
-use Facebook\WebDriver\Chrome\ChromeOptions;
-require_once('../../vendor/autoload.php');
 
+require_once('../../vendor/autoload.php');
 
 $host = 'http://localhost:4444/wd/hub'; // this is the default
 $capabilities = DesiredCapabilities::chrome();

@@ -1,15 +1,16 @@
 <?php
 namespace app\worker\controller;
 
-class Index
+use think\Controller;
+
+class Index extends controller
 {
     public function index()
     {
-        echo 'start.........';
-    }
+        $this->assign([
+            'uid' => mt_rand(100, 999),
+        ]);
 
-    public function hello($name = 'ThinkPHP5')
-    {
-        return 'hello,' . $name;
+        return $this->fetch();
     }
 }

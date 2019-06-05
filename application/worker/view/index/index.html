@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Workerman websocket服务器</title>
+</head>
+<body>
+	<div>测试ws</div>
+	<div>当前用户:{$uid}</div>
+</body>
+
+<script>
+// JSON.stringify(userInfo) json对象变为字符串
+var userInfo = {
+	"uid": {$uid},
+	"name":"一叶扁舟",
+	"msg":"春花秋月"
+}
+
+ws = new WebSocket("ws://121.65.111.238:2346");
+
+ws.onopen = function() {
+    console.log("连接成功");
+    ws.send(JSON.stringify(userInfo));
+};
+
+ws.onmessage = function(e) 
+{
+    console.log("收到服务端的消息：" + e.data);
+};
+
+</script>
+</html>

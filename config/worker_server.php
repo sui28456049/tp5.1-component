@@ -23,15 +23,17 @@ return [
     'worker_class'   => '', // 自定义Workerman服务类名 支持数组定义多个服务
 
     // 支持workerman的所有配置参数
-    'name'           => 'thinkphp',
+    'name'           => 'ws-server',
     'count'          => 4,
     'daemonize'      => false,
     'pidFile'        => Env::get('runtime_path') . 'worker.pid',
 
+    'worker_class'   => 'app\worker\Ws',
+
     // 支持事件回调
     // onWorkerStart
     'onWorkerStart'  => function ($worker) {
-        print_r('ddd');
+
     },
     // onWorkerReload
     'onWorkerReload' => function ($worker) {

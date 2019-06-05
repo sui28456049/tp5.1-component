@@ -10,7 +10,9 @@ class Index
         echo date('Y-m-d H:i:s', time()) . PHP_EOL;
     }
 
-    public function hello($name = 'ThinkPHP5')
+    // php think worker:server
+    // websocket 服务器
+    public function ws()
     {
         return 'hello,' . $name;
     }

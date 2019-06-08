@@ -7,6 +7,16 @@
 // 比如我们建立
 // 
 // 
-// 2 .查看
-// 
+// 2 .查看列表
  screen  -ls
+
+ 进入某一任务
+
+ screen -r task 或者screen -r id 都可以。
+
+
+ 3. 退出
+
+ 退出一个screen的方法，这里简单总结两个。
+方法1：screen -S abc  -X quit （abc为当时起的名字）
+方法2：screen -r abc  重新激活新的screen，执行exit退出。
